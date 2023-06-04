@@ -6,7 +6,7 @@
 final: prev:
 with prev;
 
-let libtorchSrc = callPackage "${inputs.libtorch-nix}/libtorch/release.nix" { }; in
+let libtorchSrc = callPackage "${inputs.libtorch-nix}/libtorch" { }; in
 
 if cudaSupport && cudaMajorVersion == "9" then
   let libtorch = libtorchSrc.libtorch_cudatoolkit_9_2; in
@@ -25,7 +25,7 @@ else if cudaSupport && cudaMajorVersion == "10" then
     torch_cuda = libtorch;
   }
 else if cudaSupport && cudaMajorVersion == "11" then
-  let libtorch = libtorchSrc.libtorch_cudatoolkit_11_0; in
+  let libtorch = libtorchSrc.libtorch_cudatoolkit_11_3; in
   {
     c10 = libtorch;
     torch = libtorch;

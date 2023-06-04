@@ -11,15 +11,15 @@
     };
     utils.url = "github:numtide/flake-utils";
     libtorch-nix = {
-      url = "github:hasktorch/libtorch-nix/d14b0fd10b96d192b92b8ccc7254ade4b3489331";
+      url = "github:hasktorch/libtorch-nix";
       flake = false;
     };
   };
 
   outputs = inputs@{ self, nixpkgs, haskell-nix, utils, ... }:
     let
-      name = "hasktorchSkeleton";
-      compiler = "ghc8104"; # Not used for `stack.yaml` based projects.
+      name = "hasktorch-skeleton";
+      compiler = "ghc927"; # Not used for `stack.yaml` based projects.
       cudaSupport = false;
       cudaMajorVersion = null;
       project-name = "${name}HaskellPackages";
