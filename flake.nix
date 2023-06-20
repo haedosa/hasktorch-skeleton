@@ -19,7 +19,7 @@
   outputs = inputs@{ self, nixpkgs, haskell-nix, utils, ... }:
     let
       name = "hasktorch-skeleton";
-      compiler = "ghc927"; # Not used for `stack.yaml` based projects.
+      compiler = "ghc928"; # Not used for `stack.yaml` based projects.
       cudaSupport = false;
       cudaMajorVersion = null;
       project-name = "${name}HaskellPackages";
