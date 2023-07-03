@@ -1,18 +1,4 @@
-# This file is used by nix-shell.
-# It just takes the shell attribute from default.nix.
-{ config ? {}
-, sourcesOverride ? {}
-# If true, activates CUDA support
-, cudaSupport ? false
-# If cudaSupport is true, this needs to be set to a valid CUDA major version number, e.g. 10:
-# nix-shell --arg cudaSupport true --argstr cudaMajorVersion 10
-, cudaMajorVersion ? null
-, withHoogle ? false
-, pkgs ? import ./nix/default.nix {
-    inherit config sourcesOverride cudaSupport cudaMajorVersion;
-  }
-}:
-with pkgs;
+{ pkgs }: with pkgs;
 let
   # This provides a development environment that can be used with nix-shell or
   # lorri. See https://input-output-hk.github.io/haskell.nix/user-guide/development/

@@ -103,10 +103,7 @@
 
           defaultPackage = packages.example;
 
-          devShell = (import ./shell.nix {
-              inherit cudaSupport cudaMajorVersion pkgs;
-              withHoogle = false;
-            });
-        }
-        ));
+          devShell = (import ./shell.nix { inherit pkgs; });
+
+        }));
 }
